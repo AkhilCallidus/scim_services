@@ -1,0 +1,29 @@
+plugins {
+	id 'org.springframework.boot' version '2.1.6.RELEASE'
+	id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.calliduscloud.scas'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile group: 'org.springframework.security', name: 'spring-security-core', version: '5.1.2.RELEASE'
+	runtimeOnly 'mysql:mysql-connector-java'
+	compile group: 'commons-codec', name: 'commons-codec', version: '1.6'
+	compile group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.57'
+	compile 'io.jsonwebtoken:jjwt-api:0.10.5'
+	runtime 'io.jsonwebtoken:jjwt-impl:0.10.5',
+			// Uncomment the next line if you want to use RSASSA-PSS (PS256, PS384, PS512) algorithms:
+			//'org.bouncycastle:bcprov-jdk15on:1.60',
+			'io.jsonwebtoken:jjwt-jackson:0.10.5'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
